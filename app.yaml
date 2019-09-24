@@ -1,0 +1,32 @@
+runtime: php
+env: flex
+
+runtime_config:
+  document_root: public
+
+# Ensure we skip ".env", which is only for local development
+skip_files:
+  - .env
+
+env_variables:
+  # Put production environment variables here.
+  APP_LOG: errorlog
+  APP_DEBUG: true
+  APP_KEY: base64:KG3xQ5zORZpkRpJRd2FxcamebKZuAsk5Bx5YNesgbDA=
+  STORAGE_DIR: /tmp
+  CACHE_DRIVER: database
+  SESSION_DRIVER: database
+  DB_CONNECTION: mysql
+  ## Set these environment variables according to your CloudSQL configuration.
+  DB_HOST: localhost
+  DB_DATABASE: laravel_smartvr_manager
+  DB_USERNAME: root
+  DB_PASSWORD: nga123
+  DB_PORT: 3306
+
+  DB_SOCKET: "/cloudsql/smartvr:asia-northeast2:smartvrmanager"
+
+beta_settings:
+    # for Cloud SQL, set this value to the Cloud SQL connection name,
+    # e.g. "project:region:cloudsql-instance"
+    cloud_sql_instances: "smartvr:asia-northeast2:smartvrmanager"
